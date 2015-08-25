@@ -11,27 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822185954) do
+ActiveRecord::Schema.define(version: 3) do
 
-  create_table "ideas", force: :cascade do |t|
+  create_table "posts", force: :cascade do |t|
+    t.integer  "users_id"
     t.string   "name"
-    t.text     "description"
-    t.string   "picture"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.text     "track_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
+  add_index "posts", ["users_id"], name: "index_posts_on_users_id"
+
+  create_table "tags", force: :cascade do |t|
+    t.integer  "posts_id"
+    t.integer  "users_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tags", ["posts_id"], name: "index_tags_on_posts_id"
+  add_index "tags", ["users_id"], name: "index_tags_on_users_id"
+
   create_table "users", force: :cascade do |t|
-    t.string   "new"
     t.string   "name"
     t.string   "email"
     t.string   "image_url"
-    t.boolean  "admin"
-    t.boolean  "soundfriend"
     t.string   "instagram"
     t.string   "twitter"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

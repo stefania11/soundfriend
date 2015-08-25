@@ -2,9 +2,9 @@ require_relative '../config/environment.rb'
 Rails.application.routes.draw do
   get 'pages/info'
 
-  resources :ideas
+  resources :posts
   resources :users
-  root :to => redirect('/ideas')
+  root :to => redirect('/posts')
   # root 'welcome#index'
 
   # get 'user/new'

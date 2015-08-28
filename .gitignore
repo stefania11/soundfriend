@@ -18,3 +18,6 @@
 public/uploads
 tmp
 logs
+
+# Ignore local compiled assets
+public/assets

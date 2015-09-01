@@ -10,8 +10,15 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+*= require jPlayer/jplayer.flat
+*= require bootstrap
+*= require animate
+*= require font-awesome.min
+*= require simple-line-icons
+*= require font
+*= require app
+*= require_tree .
+*= require_self
  */
  body { padding-top: 100px; }
  footer { margin-top: 100px; }

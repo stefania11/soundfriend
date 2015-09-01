@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :posts
   resources :users
-  # root :to => redirect('/posts')
+  root :to => redirect('/posts')
   # root 'welcome#index'
 
   # get 'user/new'

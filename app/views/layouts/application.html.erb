@@ -1,190 +1,20 @@
-<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Soundfriend</title>
-  <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap.css">
-  <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap-theme.css">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<!-- <!DOCTYPE html>
 <html lang="en" class="app">
 <head>
   <meta charset="utf-8" />
-  <title>Musik | Web Application</title>
+  <title>Soundfiend | Music app</title>
   <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <link rel="stylesheet" href="js/jPlayer/jplayer.flat.css" type="text/css" />
-  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-  <link rel="stylesheet" href="css/animate.css" type="text/css" />
-  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
-  <link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" />
-  <link rel="stylesheet" href="css/font.css" type="text/css" />
-  <link rel="stylesheet" href="css/app.css" type="text/css" />
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <!--[if lt IE 9]>
     <script src="js/ie/html5shiv.js"></script>
     <script src="js/ie/respond.min.js"></script>
     <script src="js/ie/excanvas.js"></script>
   <![endif]-->
-</head> -->
-<body class="container">
 
-  <div class="vbox">
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-    <%= yield %>
-  </div>
-
-
-<!-- header <section> -->
-
-
-</section>
-<section class="vbox">
-  <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
-    <div class="navbar-header aside bg-info nav-xs">
-      <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
-        <i class="icon-list"></i>
-      </a>
-      <a href="index.html" class="navbar-brand text-lt">
-        <i class="icon-earphones"></i>
-        <img src="images/logo.png" alt="." class="hide">
-        <span class="hidden-nav-xs m-l-sm">Musik</span>
-      </a>
-      <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
-        <i class="icon-settings"></i>
-      </a>
-    </div>      <ul class="nav navbar-nav hidden-xs">
-      <li>
-        <a href="#nav,.navbar-header" data-toggle="class:nav-xs,nav-xs" class="text-muted">
-          <i class="fa fa-indent text"></i>
-          <i class="fa fa-dedent text-active"></i>
-        </a>
-      </li>
-    </ul>
-    <form class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" role="search">
-      <div class="form-group">
-        <div class="input-group">
-          <span class="input-group-btn">
-            <button type="submit" class="btn btn-sm bg-white btn-icon rounded"><i class="fa fa-search"></i></button>
-          </span>
-          <input type="text" class="form-control input-sm no-border rounded" placeholder="Search songs, albums...">
-        </div>
-      </div>
-    </form>
-    <div class="navbar-right ">
-      <ul class="nav navbar-nav m-n hidden-xs nav-user user">
-        <li class="hidden-xs">
-          <a href="#" class="dropdown-toggle lt" data-toggle="dropdown">
-            <i class="icon-bell"></i>
-            <span class="badge badge-sm up bg-danger count">2</span>
-          </a>
-          <section class="dropdown-menu aside-xl animated fadeInUp">
-            <section class="panel bg-white">
-              <div class="panel-heading b-light bg-light">
-                <strong>You have <span class="count">2</span> notifications</strong>
-              </div>
-              <div class="list-group list-group-alt">
-                <a href="#" class="media list-group-item">
-                  <span class="pull-left thumb-sm">
-                    <img src="images/a0.png" alt="..." class="img-circle">
-                  </span>
-                  <span class="media-body block m-b-none">
-                    Use awesome animate.css<br>
-                    <small class="text-muted">10 minutes ago</small>
-                  </span>
-                </a>
-                <a href="#" class="media list-group-item">
-                  <span class="media-body block m-b-none">
-                    1.0 initial released<br>
-                    <small class="text-muted">1 hour ago</small>
-                  </span>
-                </a>
-              </div>
-              <div class="panel-footer text-sm">
-                <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
-                <a href="#notes" data-toggle="class:show animated fadeInRight">See all the notifications</a>
-              </div>
-            </section>
-          </section>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle bg clear" data-toggle="dropdown">
-            <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
-              <img src="images/a0.png" alt="...">
-            </span>
-            John.Smith <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu animated fadeInRight">
-            <li>
-              <span class="arrow top"></span>
-              <a href="#">Settings</a>
-            </li>
-            <li>
-              <a href="profile.html">Profile</a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="badge bg-danger pull-right">3</span>
-                Notifications
-              </a>
-            </li>
-            <li>
-              <a href="docs.html">Help</a>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <a href="modal.lockme.html" data-toggle="ajaxModal" >Logout</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </header>
-
-  <!-- header <section> -->
-
-
-  <footer>
-    <div class="container">
-      Soundfriend 2015
-    </div>
-  </footer>
-  <script src="//railsgirls.com/assets/bootstrap.js"></script>
+</head>
+<body>
+ <%= yield %>
+ <%= javascript_include_tag "application",  media: "all", "data-turbolinks-track" => true  %>
 </body>
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Soundfriend</a>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="/posts">Songs</a></li>
-      </ul>
-      <p class="navbar-text pull-right">
-      <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-        <%= image_tag current_user.gravatar_url %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-      <% end %>
-    </div>
-  </div>
-</nav>
 </html>

@@ -10,16 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-
-//= require demo.js
-
-//= require bootstrap.js
-//= require jplayer.playlist.min.js
-//= require jquery.jplayer.min.js
+//= require app.js
 //= require jquery.slimscroll.min.js
 //= require jquery.easy-pie-chart.js
 //= require app.plugin.js
-//= require app.js
+//= require jquery.jplayer.min.js
+//= require jplayer.playlist.min.js
+//= require demo.js
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
+//= require_tree .

@@ -20,7 +20,6 @@ gem 'soundcloud'
 gem 'gravtastic'
 gem 'bootstrap-sass', '~> 3.3.5'
 
-
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

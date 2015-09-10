@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   get 'pages/info'
 
   resources :posts
-  resources :users
 
   # get 'user/new'
   #

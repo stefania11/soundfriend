@@ -30,7 +30,8 @@
           </a>
         </li>
       </ul>
-      <form class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" role="search">
+      <!-- < search form template > -->
+      <!-- <form class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" role="search">
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-btn">
@@ -39,7 +40,9 @@
             <input type="text" class="form-control input-sm no-border rounded" placeholder="Search songs, albums...">
           </div>
         </div>
-      </form>
+      </form> -->
+
+
       <div class="navbar-right ">
         <ul class="nav navbar-nav m-n hidden-xs nav-user user">
           <li class="hidden-xs">
@@ -492,8 +495,9 @@
 
 
                     <!--  Use as template for Post-->
+                    <%= yield %>
 
-
+                    <% @posts.each do |post| %>
                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                       <div class="item">
                         <div class="pos-rlt">
@@ -509,7 +513,7 @@
                               <i class="fa fa-star-o text-muted"></i>
                             </div>
                             <div class="center text-center m-t-n">
-                              <a href="#"><i class="icon-control-play i-2x"></i></a>
+                              <a href="<%= link_to 'Show', post %>"></a><i class="icon-control-play i-2x"></i></a>
                             </div>
                             <div class="bottom padder m-b-sm">
                               <a href="#" class="pull-right">
@@ -520,15 +524,17 @@
                               </a>
                             </div>
                           </div>
-                          <a href="#"><img src="images/p1.jpg" alt="" class="r r-2x img-full"></a>
+                           <%= link_to 'Show', post %> ><img src="images/p1.jpg" alt="" class="r r-2x img-full"></a>
+                           <!-- <get image from souncloud></get> -->
                         </div>
                         <div class="padder-v">
-                          <a href="#" class="text-ellipsis">Tempered Song</a>
+                          <%= link_to 'Show', post %>
                           <a href="#" class="text-ellipsis text-xs text-muted">Miaow</a>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <% end %>
 
                   <div class="row m-t-lg m-b-lg">
                     <div class="col-sm-6">

@@ -6,4 +6,15 @@ class User < ActiveRecord::Base
   has_many :posts
   include Gravtastic
   gravtastic
+
+  after_create :subscribe_user_to_mailing_list
+
+  private
+
+  def subscribe_user_to_mailing_list
+    SubscribeUserToMailingListJob.perform_later(self)
+  end
+
+
+
 end

@@ -497,44 +497,7 @@
                     <!--  Use as template for Post-->
                     <%= yield %>
 
-                    <% @posts.each do |post| %>
-                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                      <div class="item">
-                        <div class="pos-rlt">
-                          <div class="bottom">
-                            <span class="badge bg-info m-l-sm m-b-sm">03:20</span>
-                          </div>
-                          <div class="item-overlay opacity r r-2x bg-black">
-                            <div class="text-info padder m-t-sm text-sm">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star-o text-muted"></i>
-                            </div>
-                            <div class="center text-center m-t-n">
-                              <a href="<%= link_to 'Show', post %>"></a><i class="icon-control-play i-2x"></i></a>
-                            </div>
-                            <div class="bottom padder m-b-sm">
-                              <a href="#" class="pull-right">
-                                <i class="fa fa-heart-o"></i>
-                              </a>
-                              <a href="#">
-                                <i class="fa fa-plus-circle"></i>
-                              </a>
-                            </div>
-                          </div>
-                           <%= link_to 'Show', post %> ><img src="images/p1.jpg" alt="" class="r r-2x img-full"></a>
-                           <!-- <get image from souncloud></get> -->
-                        </div>
-                        <div class="padder-v">
-                          <%= link_to 'Show', post %>
-                          <a href="#" class="text-ellipsis text-xs text-muted">Miaow</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <% end %>
+                  
 
                   <div class="row m-t-lg m-b-lg">
                     <div class="col-sm-6">

@@ -9,7 +9,12 @@
 </p>
 
 <p>
-  <strong>Song:</strong>
+  <strong>Add to playlist:</strong>
+  <%= form_tag post_path do  %>
+    <%= select_tag(:playlist) do %>
+        <%= content_tag(:option, @playlists.first["title"], value: @playlists.first["id"]) %>
+    <% end %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

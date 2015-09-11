@@ -2,10 +2,8 @@ require_relative '../config/environment.rb'
 Rails.application.routes.draw do
   root to: 'posts#index'
   devise_for :users
-  get 'pages/info'
-
+  get 'posts/info'
   resources :posts
-
   # get 'user/new'
   #
   # get 'user/name:string'

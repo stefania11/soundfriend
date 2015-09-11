@@ -19,6 +19,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'soundcloud'
 gem 'gravtastic'
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'dotenv-rails', :groups => [:development, :test]
+
 
 group :development, :test do
   gem 'byebug'

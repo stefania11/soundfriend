@@ -12,11 +12,38 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    client = Soundcloud.new(:client_id => '4fe62e618e9aed47f8317a5ab2ebd2e7')
+    client = Soundcloud.new(:client_id => Rails.application.secrets.soundcloud_client_id,
+                        :client_secret => Rails.application.secrets.soundcloud_secret,
+                        :username => Rails.application.secrets.soundcloud_username,
+                        :password => Rails.application.secrets.soundcloud_password)
+    # create an array of track ids
     track_url = Post.find(params[:id]).try(:track_url)
     embed_info = client.get('/oembed', :url => track_url)
+    @playlists = client.get("/me/playlists")
     @song = embed_info['html']
+
+    # puts @playlists.first.keys.inspect
+
   end
+
+  def playlist
+    # create a client object with access token
+    client = Soundcloud.new(:client_id => Rails.application.secrets.soundcloud_client_id,
+                        :client_secret => Rails.application.secrets.soundcloud_secret,
+                        :username => Rails.application.secrets.soundcloud_username,
+                        :password => Rails.application.secrets.soundcloud_password)
+    # create an array of track ids
+    posts_id = current_user.posts.pluck(:id)
+    tracks = posts_id.map { |id| {:id => id} }
+
+    # create the playlist
+    client.post('/playlists', :playlist => {
+      :title => 'My new album',
+      :sharing => 'public',
+      :tracks => tracks
+    })
+  end
+
 
   # GET /posts/new
   def new
@@ -30,7 +57,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.new(post_params)
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -59,6 +86,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    current_user.posts.find(params[:id])
     @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }

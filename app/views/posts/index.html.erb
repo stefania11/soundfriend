@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <% @posts.each do |post| %>
+<%= link_to post do %>
 <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
   <div class="item">
     <div class="pos-rlt">
@@ -15,7 +16,7 @@
           <i class="fa fa-star-o text-muted"></i>
         </div>
         <div class="center text-center m-t-n">
-          <a href="<%= link_to 'Show', post %>"></a><i class="icon-control-play i-2x"></i></a>
+          <%= link_to 'Show', post %><i class="icon-control-play i-2x"></i>
         </div>
         <div class="bottom padder m-b-sm">
           <a href="#" class="pull-right">
@@ -26,7 +27,7 @@
           </a>
         </div>
       </div>
-       <%= link_to 'Show', post %> ><img src="images/p1.jpg" alt="" class="r r-2x img-full"></a>
+        <img src="/images/p1.jpg" alt="" class="r r-2x img-full">
        <!-- <get image from souncloud></get> -->
     </div>
     <div class="padder-v">
@@ -36,6 +37,7 @@
   </div>
 </div>
 </div>
+    <% end %>
 <% end %>
 <%= link_to 'New Song Recommendation', new_post_path %>
 

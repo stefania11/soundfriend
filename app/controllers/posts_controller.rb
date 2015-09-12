@@ -19,9 +19,9 @@ class PostsController < ApplicationController
     # create an array of track ids
     track_url = Post.find(params[:id]).try(:track_url)
     embed_info = client.get('/oembed', :url => track_url)
-    @playlists = client.get("/me/playlists")
     @song = embed_info['html']
 
+    @playlists = client.get("/me/playlists")
     # puts @playlists.first.keys.inspect
 
   end

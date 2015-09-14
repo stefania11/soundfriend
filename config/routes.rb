@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'posts#index'
   devise_for :users
   get 'posts/info'
+  #get 'pages/info'
+  get 'search', to: 'search#index'
   resources :posts
   get '/playlists/new', to: "posts#playlist_new"
   post '/playlists', to: "posts#playlist"

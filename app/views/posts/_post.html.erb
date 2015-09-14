@@ -1,0 +1,16 @@
+
+<div class='col-xs-12 col-sm-6'>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.name %></td>
+      <td><%= post.track_url %></td>
+      <td><%= link_to 'Show', post %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </div>
+</div>
+</div>

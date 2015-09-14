@@ -20,14 +20,14 @@ class PostsController < ApplicationController
     track_url = Post.find(params[:id]).try(:track_url)
     embed_info = client.get('/oembed', :url => track_url)
     @song = embed_info['html']
+    # URI.decode(embed_info["html"]).scan(/tracks\/(.*?)(?:\/?&)/).flatten to get the id of track
 
     @playlists = client.get("/me/playlists")
     # puts @playlists.first.keys.inspect
-
   end
 
   def playlist
-    # create a client object with access token
+    create a client object with access token
     client = Soundcloud.new(:client_id => Rails.application.secrets.soundcloud_client_id,
                         :client_secret => Rails.application.secrets.soundcloud_secret,
                         :username => Rails.application.secrets.soundcloud_username,
@@ -36,12 +36,25 @@ class PostsController < ApplicationController
     posts_id = current_user.posts.pluck(:id)
     tracks = posts_id.map { |id| {:id => id} }
 
-    # create the playlist
+    create the playlist
+
     client.post('/playlists', :playlist => {
       :title => 'My new album',
       :sharing => 'public',
       :tracks => tracks
     })
+
+    Find the post params[:post_id]
+    post = Post.find(params[:post_id])
+    playlist = Playlist.find(params[:id])
+    playlist.posts << post
+
+  end
+
+  # playlists/7.json
+  def get_playlist
+    playlist = Playlist.find(params[:id])
+    render json: playlist
   end
 
 

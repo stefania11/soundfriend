@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
   get 'posts/info'
   resources :posts
+  get '/playlists/new', to: "posts#playlist_new"
+  post '/playlists', to: "posts#playlist"
+  resources :playlists
   # get 'user/new'
   #
   # get 'user/name:string'

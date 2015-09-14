@@ -21,6 +21,14 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+
+  <p style="float: none; text-align: left; clear: both; margin: 10px 0;">
+    <input type="checkbox" required style="float:none; vertical-align: middle;" id="agree" />
+    <label style="display:inline; float:none" for="agree">
+      I agree with the <a href="/pages/terms"><u>terms and conditions</u></a>.
+    </label>
+  </p>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

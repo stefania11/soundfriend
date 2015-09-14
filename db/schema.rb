@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20150825043756) do
   add_index "tags", ["users_id"], name: "index_tags_on_users_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
     t.string   "image_url"
     t.string   "instagram"
     t.string   "twitter"
@@ -50,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150825043756) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

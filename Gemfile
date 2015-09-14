@@ -20,12 +20,14 @@ gem 'soundcloud'
 gem 'gravtastic'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'dotenv-rails', :groups => [:development, :test]
-
+gem 'gibbon'
+gem 'mailchimp'
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'pry'
 end
 
 gem 'pry-rails'

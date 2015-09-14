@@ -6,6 +6,3 @@ class SubscribeUserToMailingListJob < ActiveJob::Base
     gibbon.lists(ENV["MAILCHIMP_LIST_ID"]).members.create(body: {email_address: "#{user.email}", status: "subscribed", merge_fields: {FNAME: "#{user.name}", LNAME: "#{user.name}"}})
   end
 end
-
-# user = User.create(:name => "j", :image_url => "a", :instagram => "n", :twitter => "e" )
-# SubscribeUserToMailingListJob.perform_later(user)

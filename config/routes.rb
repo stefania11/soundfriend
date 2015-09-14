@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root "posts#index"
   devise_for :users
   get 'pages/info'
+  get 'pages/terms'
+  get 'pages/privacypolicy'
   get 'search', to: 'search#index'
-
 
   resources :posts
   # get 'user/new'

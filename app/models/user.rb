@@ -15,6 +15,4 @@ class User < ActiveRecord::Base
     SubscribeUserToMailingListJob.perform_later(self)
   end
 
-
-
 end

@@ -1,4 +1,7 @@
  require 'soundcloud'
+ require "open-uri"
+ require 'rubygems'
+require 'json'
 
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
@@ -12,43 +15,70 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    client = Soundcloud.new(:client_id => Rails.application.secrets.soundcloud_client_id,
+    client_playlist = Soundcloud.new(:client_id => Rails.application.secrets.soundcloud_client_id,
                         :client_secret => Rails.application.secrets.soundcloud_secret,
                         :username => Rails.application.secrets.soundcloud_username,
                         :password => Rails.application.secrets.soundcloud_password)
+    client_track = SoundCloud.new(:client_id => Rails.application.secrets.soundcloud_client_id)
+
     # create an array of track ids
     track_url = Post.find(params[:id]).try(:track_url)
-    embed_info = client.get('/oembed', :url => track_url)
+    # puts track_url.inspect
+    embed_info = client_track.get('/oembed', :url => track_url)
     @song = embed_info['html']
+    @track_id = client_track.get('/resolve', :url => track_url).id
+
     # URI.decode(embed_info["html"]).scan(/tracks\/(.*?)(?:\/?&)/).flatten to get the id of track
 
-    @playlists = client.get("/me/playlists")
+    @playlists = client_playlist.get("/me/playlists")
     # puts @playlists.first.keys.inspect
   end
 
   def playlist
-    create a client object with access token
-    client = Soundcloud.new(:client_id => Rails.application.secrets.soundcloud_client_id,
-                        :client_secret => Rails.application.secrets.soundcloud_secret,
-                        :username => Rails.application.secrets.soundcloud_username,
-                        :password => Rails.application.secrets.soundcloud_password)
+
+    client_playlist = Soundcloud.new(:client_id => Rails.application.secrets.soundcloud_client_id, :client_secret => Rails.application.secrets.soundcloud_secret, :username => Rails.application.secrets.soundcloud_username, :password => Rails.application.secrets.soundcloud_password)
+    @token = params[:authenticity_token]
+    client_track = SoundCloud.new(:client_id => Rails.application.secrets.soundcloud_client_id)
+    client_post = SoundCloud.new(:access_token => @token)
+
+
     # create an array of track ids
-    posts_id = current_user.posts.pluck(:id)
-    tracks = posts_id.map { |id| {:id => id} }
+    body_track_json = open("http://api.soundcloud.com/tracks/217337107?client_id=#{Rails.application.secrets.soundcloud_client_id}"){|f| f.read }
+    # puts body_track_json
+    parsed = JSON.parse(body_track_json)
+    track_url = parsed["permalink_url"]
+    @track_id = client_track.get('/resolve', :url => track_url).id
+    # client = Soundcloud.new(:client_id => Rails.application.secrets.soundcloud_client_id,
+    #                     :client_secret => Rails.application.secrets.soundcloud_secret,
+    #                     :username => Rails.application.secrets.soundcloud_username,
+    #                     :password => Rails.application.secrets.soundcloud_password)
+    # client_track = SoundCloud.new(:client_id => Rails.application.secrets.soundcloud_client_id)
+    # track_url = params[:track_url]
+    # embed_info = client_track.get('/oembed', :url => track_url)
+    # @track_id = URI.decode(embed_info["html"]).scan(/tracks\/(.*?)(?:\/?&)/).flatten
+    # # track_url = Post.find(params[:track_id]).try(:track_url)
+    # # @track_id = client_track.get('/resolve', :url => track_url).id
 
-    create the playlist
+    # create an array of track ids
+    # posts_id = current_user.posts.pluck(:id)
+    # tracks = posts_id.map { |id| {:id => id} }
+    @playlist = client_playlist.get("/me/playlists/#{params[:playlist]}")
+    track_ids = @playlist.tracks.map(&:id)
+    # puts track_ids
+    track_ids << @track_id
+    tracks = track_ids.map{|id| {:id => id}}
+    #puts track_ids
 
-    client.post('/playlists', :playlist => {
-      :title => 'My new album',
-      :sharing => 'public',
-      :tracks => tracks
-    })
-
-    Find the post params[:post_id]
-    post = Post.find(params[:post_id])
-    playlist = Playlist.find(params[:id])
-    playlist.posts << post
-
+    # params[:track_id]
+    binding.pry
+    begin
+      playlist = client_playlist.put(@playlist.uri, :playlist => {
+        :tracks => tracks
+      })
+    rescue Soundcloud::ResponseError => e
+      puts "Error: #{e.message}, Status Code: #{e.response.code}"
+    end
+    redirect_to :root
   end
 
   # playlists/7.json

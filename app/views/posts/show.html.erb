@@ -10,8 +10,10 @@
 
 <p>
   <strong>Add to playlist:</strong>
-  <%= form_tag post_path do  %>
+  <%= form_tag playlists_path do  %>
+    <%= hidden_field_tag(:track_id, @track_id) %>
     <%= select_tag("playlist", options_for_select(@playlists.map {|p| [ p.title, p.id ] })) %>
+    <%= submit_tag %>
   <% end %>
 </p>
 

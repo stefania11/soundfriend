@@ -14,9 +14,9 @@
         <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
           <i class="icon-list"></i>
         </a>
-        <a href="index.html" class="navbar-brand text-lt">
-          <i class="icon-earphones"></i>
-          <img src="images/logo.png" alt="." class="hide">
+        <a href="/pages/about" class="navbar-brand text-lt">
+          <i class="icon-logo"></i>
+          <%= image_tag '/images/sf.png', width: '100px;', height: '100px;', class: "logo-center img-responsive" %>
           <span class="hidden-nav-xs m-l-sm">Musik</span>
         </a>
         <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
@@ -53,7 +53,7 @@
 
 
       <div class="navbar-right ">
-        <ul class="nav navbar-nav m-n hidden-xs nav-user user">
+        <!-- <ul class="nav navbar-nav m-n hidden-xs nav-user user"> -->
           <li class="hidden-xs">
             <a href="#" class="dropdown-toggle lt" data-toggle="dropdown">
               <i class="icon-bell"></i>
@@ -67,7 +67,7 @@
                 <div class="list-group list-group-alt">
                   <a href="#" class="media list-group-item">
                     <span class="pull-left thumb-sm">
-                      <img src="images/a0.png" alt="..." class="img-circle">
+                      <img src="/images/a0.png" alt="..." class="img-circle">
                     </span>
                     <span class="media-body block m-b-none">
                       Use awesome animate.css<br>
@@ -146,9 +146,9 @@
                       Discover
                     </li>
                     <li>
-                      <a href="index.html">
+                      <a href="/pages/about">
                         <i class="icon-disc icon text-success"></i>
-                        <span class="font-bold">What's new</span>
+                        <span class="font-bold">About Us</span>
                       </a>
                     </li>
                     <li>
@@ -466,7 +466,7 @@
                         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
                         <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
                       <% end %>
-                        <!--img src="images/a3.png" class="dker" alt="..."-->
+                        <!--img src="/images/a3.png" class="dker" alt="..."-->
 x                      </span>
                       <span class="hidden-nav-xs clear">
                         <span class="block m-l">
@@ -509,7 +509,7 @@ x                      </span>
               <section class="vbox">
                 <section class="scrollable padder-lg w-f-md" id="bjax-target">
                   <a href="#" class="pull-right text-muted m-t-lg" data-toggle="class:fa-spin" ><i class="icon-refresh i-lg  inline" id="refresh"></i></a>
-                  <h2 class="font-thin m-b">Discover <span class="musicbar animate inline m-l-sm" style="width:20px;height:20px">
+                  <h2 class="font-thin m-b">Discover <span class="musicbar animate inline m-l-sm" style="width:20px;height:60px">
                     <span class="bar1 a1 bg-primary lter"></span>
                     <span class="bar2 a2 bg-info lt"></span>
                     <span class="bar3 a3 bg-success"></span>
@@ -609,7 +609,7 @@ x                      </span>
                   <ul class="list-group no-bg no-borders auto m-t-n-xxs">
                     <li class="list-group-item">
                       <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
-                        <img src="images/a1.png" alt="..." class="img-circle">
+                        <img src="/images/a1.png" alt="..." class="img-circle">
                         <i class="on b-light right sm"></i>
                       </span>
                       <div class="clear">
@@ -619,7 +619,7 @@ x                      </span>
                     </li>
                     <li class="list-group-item">
                       <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
-                        <img src="images/a2.png" alt="...">
+                        <img src="/images/a2.png" alt="...">
                         <i class="on b-light right sm"></i>
                       </span>
                       <div class="clear">
@@ -629,7 +629,7 @@ x                      </span>
                     </li>
                     <li class="list-group-item">
                       <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
-                        <img src="images/a3.png" alt="...">
+                        <img src="/images/a3.png" alt="...">
                         <i class="busy b-light right sm"></i>
                       </span>
                       <div class="clear">
@@ -639,7 +639,7 @@ x                      </span>
                     </li>
                     <li class="list-group-item">
                       <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
-                        <img src="images/a4.png" alt="...">
+                        <img src="/images/a4.png" alt="...">
                         <i class="away b-light right sm"></i>
                       </span>
                       <div class="clear">
@@ -649,7 +649,7 @@ x                      </span>
                     </li>
                     <li class="list-group-item">
                       <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
-                        <img src="images/a5.png" alt="..." class="img-circle">
+                        <img src="/images/a5.png" alt="..." class="img-circle">
                         <i class="on b-light right sm"></i>
                       </span>
                       <div class="clear">
@@ -659,7 +659,7 @@ x                      </span>
                     </li>
                     <li class="list-group-item">
                       <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
-                        <img src="images/a6.png" alt="...">
+                        <img src="/images/a6.png" alt="...">
                         <i class="on b-light right sm"></i>
                       </span>
                       <div class="clear">
@@ -669,7 +669,7 @@ x                      </span>
                     </li>
                     <li class="list-group-item">
                       <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
-                        <img src="images/a7.png" alt="...">
+                        <img src="/images/a7.png" alt="...">
                         <i class="busy b-light right sm"></i>
                       </span>
                       <div class="clear">
@@ -679,7 +679,7 @@ x                      </span>
                     </li>
                     <li class="list-group-item">
                       <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
-                        <img src="images/a8.png" alt="...">
+                        <img src="/images/a8.png" alt="...">
                         <i class="away b-light right sm"></i>
                       </span>
                       <div class="clear">
@@ -689,7 +689,7 @@ x                      </span>
                     </li>
                     <li class="list-group-item">
                       <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
-                        <img src="images/a9.png" alt="..." class="img-circle">
+                        <img src="/images/a9.png" alt="..." class="img-circle">
                         <i class="on b-light right sm"></i>
                       </span>
                       <div class="clear">
@@ -699,7 +699,7 @@ x                      </span>
                     </li>
                     <li class="list-group-item">
                       <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
-                        <img src="images/a1.png" alt="...">
+                        <img src="/images/a1.png" alt="...">
                         <i class="on b-light right sm"></i>
                       </span>
                       <div class="clear">
@@ -709,7 +709,7 @@ x                      </span>
                     </li>
                     <li class="list-group-item">
                       <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
-                        <img src="images/a2.png" alt="...">
+                        <img src="/images/a2.png" alt="...">
                         <i class="busy b-light right sm"></i>
                       </span>
                       <div class="clear">
@@ -719,7 +719,7 @@ x                      </span>
                     </li>
                     <li class="list-group-item">
                       <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
-                        <img src="images/a3.png" alt="...">
+                        <img src="/images/a3.png" alt="...">
                         <i class="away b-light right sm"></i>
                       </span>
                       <div class="clear">

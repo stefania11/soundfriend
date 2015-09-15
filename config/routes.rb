@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'pages/info'
   get 'pages/terms'
+  get 'pages/about'
   get 'pages/privacypolicy'
   #get 'pages/info'
   get 'search', to: 'search#index'
